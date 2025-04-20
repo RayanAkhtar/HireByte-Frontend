@@ -8,7 +8,6 @@ import { LogIn, UserPlus, Moon, Sun, Palette } from 'lucide-react';
 const Navbar = () => {
 	const { theme, setTheme } = useTheme();
 	const [mounted, setMounted] = useState(false);
-	const [colorPalette, setColorPalette] = useState('default');
 	const [isPaletteOpen, setIsPaletteOpen] = useState(false);
 
 	useEffect(() => {
@@ -16,7 +15,6 @@ const Navbar = () => {
 
 		const savedPalette = localStorage.getItem('color-palette');
 		if (savedPalette) {
-			setColorPalette(savedPalette);
 			document.documentElement.setAttribute('data-color-palette', savedPalette);
 		}
 	}, []);
@@ -26,7 +24,6 @@ const Navbar = () => {
 	};
 
 	const handleColorPaletteChange = (palette: string) => {
-		setColorPalette(palette);
 		document.documentElement.setAttribute('data-color-palette', palette);
 		localStorage.setItem('color-palette', palette);
 		setIsPaletteOpen(false);

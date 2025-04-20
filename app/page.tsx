@@ -81,8 +81,8 @@ export default function Home () {
 							What Our Users Are Saying
 						</h3>
 						<p className='italic'>
-							"HireByte made my job application process so much easier. I got my dream
-							job thanks to the cover letters and CV feedback!"
+							&quot;HireByte made my job application process so much easier. I got my
+							dream job thanks to the cover letters and CV feedback!&quot;
 						</p>
 						<p className='mt-4 text-right text-[var(--foreground-secondary)]'>
 							- Jane D., Software Engineer
