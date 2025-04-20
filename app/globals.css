@@ -6,11 +6,39 @@
 
 /* Light theme default */
 :root {
-  --background: #ffffff; /* Light background */
-  --foreground: #171717; /* Dark text color */
-  --primary: #2C7A7B; /* Teal color for accents (light teal) */
-  --secondary: #81E6D9; /* Lighter teal for secondary accents */
-  --tertiary: #2B6B6D; /* Darker teal for tertiary accents */
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #81E6D9;
+  --secondary: #2C7A7B;
+  --tertiary: #2B6B6D;
+  --button-bg: #ffffff;
+  --button-fg: var(--primary);
+  --button-border: #e5e7eb;
+
+  /* Foreground colors */
+  --foreground-primary: var(--foreground);
+  --foreground-secondary: var(--secondary);
+  --foreground-tertiary: var(--tertiary);
+
+  /* Background colors */
+  --background-primary: #e2f9f9;
+  --background-secondary: #a3d4d4;
+  --background-tertiary: #2f4f4f;
+}
+
+/* Dark theme default */
+[data-theme='dark'] {
+  --button-bg: #1f2937;
+  --button-fg: var(--primary);
+  --button-border: #4b5563;
+  --foreground-primary: var(--foreground);
+  --foreground-secondary: var(--secondary);
+  --foreground-tertiary: var(--tertiary);
+
+  /* Background colors */
+  --background-primary: #374151;
+  --background-secondary: #2c3e3e;
+  --background-tertiary: #1f3535;
 }
 
 /* Pastel Theme */
@@ -20,6 +48,16 @@ html[data-color-palette="pastel"] {
   --primary: #ffb3b3;
   --secondary: #f5a1a1;
   --tertiary: #d98d8d;
+
+  /* Foreground colors for pastel theme */
+  --foreground-primary: var(--foreground);
+  --foreground-secondary: var(--secondary);
+  --foreground-tertiary: var(--tertiary);
+
+  /* Background colors for pastel theme */
+  --background-primary: #ffe4e4;
+  --background-secondary: #f7c2c2;
+  --background-tertiary: #e9a7a7;
 }
 
 html[data-color-palette="pastel"] body {
@@ -34,6 +72,16 @@ html.dark[data-color-palette="pastel"] {
   --primary: #ffb3b3;
   --secondary: #f5a1a1;
   --tertiary: #d98d8d;
+
+  /* Dark mode foreground colors for pastel theme */
+  --foreground-primary: var(--foreground);
+  --foreground-secondary: var(--secondary);
+  --foreground-tertiary: var(--tertiary);
+
+  /* Background colors for dark pastel theme */
+  --background-primary: #2d2d2d;
+  --background-secondary: #3c3c3c;
+  --background-tertiary: #4c4c4c;
 }
 
 /* Vibrant Theme */
@@ -43,6 +91,16 @@ html[data-color-palette="vibrant"] {
   --primary: #ff6347;
   --secondary: #ff8566;
   --tertiary: #e63e3f;
+
+  /* Foreground colors for vibrant theme */
+  --foreground-primary: var(--foreground);
+  --foreground-secondary: var(--secondary);
+  --foreground-tertiary: var(--tertiary);
+
+  /* Background colors for vibrant theme */
+  --background-primary: #ffd0b3;
+  --background-secondary: #ffb3a6;
+  --background-tertiary: #e66b5f;
 }
 
 html[data-color-palette="vibrant"] body {
@@ -57,6 +115,16 @@ html.dark[data-color-palette="vibrant"] {
   --primary: #ff6347;
   --secondary: #ff8566;
   --tertiary: #e63e3f;
+
+  /* Dark mode foreground colors for vibrant theme */
+  --foreground-primary: var(--foreground);
+  --foreground-secondary: var(--secondary);
+  --foreground-tertiary: var(--tertiary);
+
+  /* Background colors for dark vibrant theme */
+  --background-primary: #333333;
+  --background-secondary: #4a4a4a;
+  --background-tertiary: #5d5d5d;
 }
 
 /* Crimson Palette */
@@ -66,6 +134,16 @@ html[data-color-palette="crimson"] {
   --primary: #e30b5c;
   --secondary: #d9046d;
   --tertiary: #c5004e;
+
+  /* Foreground colors for crimson theme */
+  --foreground-primary: var(--foreground);
+  --foreground-secondary: var(--secondary);
+  --foreground-tertiary: var(--tertiary);
+
+  /* Background colors for crimson theme */
+  --background-primary: #f5c5d0;
+  --background-secondary: #f09bb0;
+  --background-tertiary: #e6788b;
 }
 
 html[data-color-palette="crimson"] body {
@@ -80,6 +158,16 @@ html.dark[data-color-palette="crimson"] {
   --primary: #e30b5c;
   --secondary: #d9046d;
   --tertiary: #c5004e;
+
+  /* Dark mode foreground colors for crimson theme */
+  --foreground-primary: var(--foreground);
+  --foreground-secondary: var(--secondary);
+  --foreground-tertiary: var(--tertiary);
+
+  /* Background colors for dark crimson theme */
+  --background-primary: #3a2a2a;
+  --background-secondary: #552d2d;
+  --background-tertiary: #6a3232;
 }
 
 /* Cyberpunk Palette */
@@ -89,6 +177,16 @@ html[data-color-palette="cyberpunk"] {
   --primary: #ff1493;
   --secondary: #ff66b2;
   --tertiary: #d90073;
+
+  /* Foreground colors for cyberpunk theme */
+  --foreground-primary: var(--foreground);
+  --foreground-secondary: var(--secondary);
+  --foreground-tertiary: var(--tertiary);
+
+  /* Background colors for cyberpunk theme */
+  --background-primary: #ffd9f2;
+  --background-secondary: #ff80ff;
+  --background-tertiary: #d900ff;
 }
 
 html[data-color-palette="cyberpunk"] body {
@@ -103,6 +201,16 @@ html.dark[data-color-palette="cyberpunk"] {
   --primary: #ff1493;
   --secondary: #ff66b2;
   --tertiary: #d90073;
+
+  /* Dark mode foreground colors for cyberpunk theme */
+  --foreground-primary: var(--foreground);
+  --foreground-secondary: var(--secondary);
+  --foreground-tertiary: var(--tertiary);
+
+  /* Background colors for dark cyberpunk theme */
+  --background-primary: #2d2d2d;
+  --background-secondary: #4d4d4d;
+  --background-tertiary: #6a6a6a;
 }
 
 /* Earth Theme */
@@ -112,6 +220,16 @@ html[data-color-palette="earth"] {
   --primary: #2b6d2f;
   --secondary: #4b8e4e;
   --tertiary: #2f5d2b;
+
+  /* Foreground colors for earth theme */
+  --foreground-primary: var(--foreground);
+  --foreground-secondary: var(--secondary);
+  --foreground-tertiary: var(--tertiary);
+
+  /* Background colors for earth theme */
+  --background-primary: #d0e8d2;
+  --background-secondary: #93c693;
+  --background-tertiary: #4c8f4c;
 }
 
 html[data-color-palette="earth"] body {
@@ -126,12 +244,32 @@ html.dark[data-color-palette="earth"] {
   --primary: #2b6d2f;
   --secondary: #4b8e4e;
   --tertiary: #2f5d2b;
+
+  /* Dark mode foreground colors for earth theme */
+  --foreground-primary: var(--foreground);
+  --foreground-secondary: var(--secondary);
+  --foreground-tertiary: var(--tertiary);
+
+  /* Background colors for dark earth theme */
+  --background-primary: #2d2d2d;
+  --background-secondary: #3c3c3c;
+  --background-tertiary: #4c4c4c;
 }
 
 /* Dark theme overrides */
 html.dark {
   --background: #212121;
   --foreground: #ededed;
+
+  /* Dark mode foreground colors */
+  --foreground-primary: var(--foreground);
+  --foreground-secondary: var(--secondary);
+  --foreground-tertiary: var(--tertiary);
+
+  /* Dark mode background colors */
+  --background-primary: #333333;
+  --background-secondary: #4a4a4a;
+  --background-tertiary: #5d5d5d;
 }
 
 /* Light mode styles */
@@ -173,4 +311,30 @@ html.dark .text-secondary {
 html.dark .text-tertiary {
   color: var(--tertiary);
   transition: color 0.3s;
+}
+
+/* Foreground classes for different themes */
+.text-foreground-primary {
+  color: var(--foreground-primary);
+}
+
+.text-foreground-secondary {
+  color: var(--foreground-secondary);
+}
+
+.text-foreground-tertiary {
+  color: var(--foreground-tertiary);
+}
+
+/* Background classes for primary, secondary, and tertiary */
+.bg-primary {
+  background-color: var(--background-primary);
+}
+
+.bg-secondary {
+  background-color: var(--background-secondary);
+}
+
+.bg-tertiary {
+  background-color: var(--background-tertiary);
 }

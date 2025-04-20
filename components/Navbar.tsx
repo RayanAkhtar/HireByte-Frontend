@@ -8,58 +8,121 @@ import { LogIn, UserPlus, Moon, Sun, Palette } from 'lucide-react';
 const Navbar = () => {
 	const { theme, setTheme } = useTheme();
 	const [mounted, setMounted] = useState(false);
-	const [colorPalette, setColorPalette] = useState('default'); // State for current color palette
-	const [isPaletteOpen, setIsPaletteOpen] = useState(false); // State for dropdown visibility
+	const [colorPalette, setColorPalette] = useState('default');
+	const [isPaletteOpen, setIsPaletteOpen] = useState(false);
 
 	useEffect(() => {
 		setMounted(true);
+
+		const savedPalette = localStorage.getItem('color-palette');
+		if (savedPalette) {
+			setColorPalette(savedPalette);
+			document.documentElement.setAttribute('data-color-palette', savedPalette);
+		}
 	}, []);
 
 	const handleThemeChange = (newTheme: string) => {
 		setTheme(newTheme);
 	};
 
-	// Function to change color palette based on selection
 	const handleColorPaletteChange = (palette: string) => {
 		setColorPalette(palette);
 		document.documentElement.setAttribute('data-color-palette', palette);
-		setIsPaletteOpen(false); // Close the palette after selecting
+		localStorage.setItem('color-palette', palette);
+		setIsPaletteOpen(false);
 	};
 
-	// Toggle palette dropdown visibility
 	const togglePaletteMenu = () => {
 		setIsPaletteOpen(!isPaletteOpen);
 	};
 
-	if (!mounted) return null;
+	if (!mounted) {
+		return (
+			<nav
+				className={`px-6 py-4 bg-[var(--background)] shadow-md rounded-b-3xl border-b border-zinc-200 dark:border-zinc-700
+	transition-opacity duration-500 ease-in-out ${
+		mounted ? 'opacity-100 delay-150' : 'opacity-0 pointer-events-none'
+	}`}
+			>
+				<div className='max-w-7xl mx-auto flex justify-between items-center'>
+					{!mounted ? (
+						// Skeleton shimmer while mounting
+						<>
+							<div className='animate-pulse w-1/3 h-6 bg-zinc-200 dark:bg-zinc-700 rounded'></div>
+							<div className='flex gap-2'>
+								<div className='w-8 h-8 rounded-xl bg-zinc-200 dark:bg-zinc-700 animate-pulse'></div>
+								<div className='w-8 h-8 rounded-xl bg-zinc-200 dark:bg-zinc-700 animate-pulse'></div>
+								<div className='w-20 h-8 rounded-xl bg-zinc-200 dark:bg-zinc-700 animate-pulse'></div>
+							</div>
+						</>
+					) : (
+						// Your full navbar JSX here
+						<>
+							{/* Left - Logo & Nav */}
+							<div className='flex items-center gap-10'>
+								<Link
+									href='/'
+									className='text-3xl font-bold tracking-tight'
+									style={{ color: 'var(--primary)' }}
+								>
+									StudentApp
+								</Link>
+								<div className='hidden md:flex gap-6 text-[15px] font-medium text-[var(--foreground)]'>
+									<Link
+										href='/cover-letter'
+										className='hover:text-[var(--secondary)] transition'
+									>
+										Cover Letters
+									</Link>
+									<Link
+										href='/cv-roasting'
+										className='hover:text-[var(--secondary)] transition'
+									>
+										CV Roasting
+									</Link>
+									<Link
+										href='/interview-assistant'
+										className='hover:text-[var(--secondary)] transition'
+									>
+										AI Assistant
+									</Link>
+								</div>
+							</div>
+						</>
+					)}
+				</div>
+			</nav>
+		);
+	}
 
 	return (
-		<nav className='px-6 py-4 bg-beige-50 dark:bg-zinc-900 shadow-md rounded-b-3xl border-b border-beige-200 dark:border-zinc-700'>
+		<nav className='px-6 py-4 bg-[var(--background)] shadow-md rounded-b-3xl border-b border-zinc-200 dark:border-zinc-700 transition'>
 			<div className='max-w-7xl mx-auto flex justify-between items-center'>
 				{/* Left - Logo & Nav */}
 				<div className='flex items-center gap-10'>
 					<Link
 						href='/'
-						className='text-3xl font-bold text-teal-600 dark:text-teal-300 tracking-tight'
+						className='text-3xl font-bold tracking-tight'
+						style={{ color: 'var(--primary)' }}
 					>
 						StudentApp
 					</Link>
-					<div className='hidden md:flex gap-6 text-[15px] font-medium text-zinc-700 dark:text-zinc-300'>
+					<div className='hidden md:flex gap-6 text-[15px] font-medium text-[var(--foreground)]'>
 						<Link
 							href='/cover-letter'
-							className='hover:text-teal-500 dark:hover:text-teal-400 transition'
+							className='hover:text-[var(--secondary)] transition'
 						>
 							Cover Letters
 						</Link>
 						<Link
 							href='/cv-roasting'
-							className='hover:text-teal-500 dark:hover:text-teal-400 transition'
+							className='hover:text-[var(--secondary)] transition'
 						>
 							CV Roasting
 						</Link>
 						<Link
 							href='/interview-assistant'
-							className='hover:text-teal-500 dark:hover:text-teal-400 transition'
+							className='hover:text-[var(--secondary)] transition'
 						>
 							AI Assistant
 						</Link>
@@ -68,102 +131,59 @@ const Navbar = () => {
 
 				{/* Right - Theme & Auth */}
 				<div className='flex items-center gap-4'>
-					{/* Theme toggle */}
 					<button
 						onClick={() => handleThemeChange(theme === 'dark' ? 'light' : 'dark')}
-						className='p-2 rounded-xl bg-white dark:bg-zinc-800 text-teal-600 dark:text-teal-300 shadow-sm hover:scale-105 transition'
+						className='p-2 rounded-xl bg-[var(--background-secondary)] text-[var(--primary)] shadow-sm hover:scale-105 transition'
 					>
 						{theme === 'dark' ? <Moon size={18} /> : <Sun size={18} />}
 					</button>
 
-					{/* Color Palette Picker */}
+					{/* Palette Picker */}
 					<div className='relative'>
 						<button
 							onClick={togglePaletteMenu}
-							className='p-2 rounded-xl bg-white dark:bg-zinc-800 text-teal-600 dark:text-teal-300 shadow-sm hover:scale-105 transition'
+							className='p-2 rounded-xl bg-[var(--background-secondary)] text-[var(--primary)] shadow-sm hover:scale-105 transition'
 						>
 							<Palette size={18} />
 						</button>
-						{/* Color Palette Dropdown */}
 						{isPaletteOpen && (
-							<div className='absolute right-0 bg-white dark:bg-zinc-800 p-2 rounded-md shadow-md mt-2 w-40'>
+							<div className='absolute right-0 bg-[var(--background-secondary)] p-2 rounded-md shadow-md mt-2 w-40 z-10'>
 								<ul className='space-y-2'>
-									{/* Default Theme Preview */}
-									<li>
-										<button
-											className='flex items-center gap-2 text-teal-600 dark:text-teal-300'
-											onClick={() => handleColorPaletteChange('default')}
-										>
-											<div className='w-4 h-4 rounded-full bg-teal-600'></div>
-											Default
-										</button>
-									</li>
-									{/* Pastel Theme Preview */}
-									<li>
-										<button
-											className='flex items-center gap-2 text-teal-600 dark:text-teal-300'
-											onClick={() => handleColorPaletteChange('pastel')}
-										>
-											<div className='w-4 h-4 rounded-full bg-pink-300'></div>
-											Pastel
-										</button>
-									</li>
-									{/* Vibrant Theme Preview */}
-									<li>
-										<button
-											className='flex items-center gap-2 text-teal-600 dark:text-teal-300'
-											onClick={() => handleColorPaletteChange('vibrant')}
-										>
-											<div className='w-4 h-4 rounded-full bg-orange-600'></div>
-											Vibrant
-										</button>
-									</li>
-									{/* Crimson Theme Preview */}
-									<li>
-										<button
-											className='flex items-center gap-2 text-teal-600 dark:text-teal-300'
-											onClick={() => handleColorPaletteChange('crimson')}
-										>
-											<div className='w-4 h-4 rounded-full bg-red-600'></div>
-											Crimson
-										</button>
-									</li>
-									{/* Cyberpunk Theme Preview */}
-									<li>
-										<button
-											className='flex items-center gap-2 text-teal-600 dark:text-teal-300'
-											onClick={() => handleColorPaletteChange('cyberpunk')}
-										>
-											<div className='w-4 h-4 rounded-full bg-pink-600'></div>
-											Cyberpunk
-										</button>
-									</li>
-									{/* Muted Earth Theme Preview */}
-									<li>
-										<button
-											className='flex items-center gap-2 text-teal-600 dark:text-teal-300'
-											onClick={() => handleColorPaletteChange('earth')}
-										>
-											<div className='w-4 h-4 rounded-full bg-green-500'></div>
-											Earth
-										</button>
-									</li>
+									{[
+										{ name: 'Default', value: 'default', color: 'bg-teal-400' },
+										{ name: 'Pastel', value: 'pastel', color: 'bg-pink-300' },
+										{ name: 'Vibrant', value: 'vibrant', color: 'bg-orange-600' },
+										{ name: 'Crimson', value: 'crimson', color: 'bg-red-600' },
+										{ name: 'Cyberpunk', value: 'cyberpunk', color: 'bg-pink-600' },
+										{ name: 'Earth', value: 'earth', color: 'bg-green-500' },
+									].map(palette => (
+										<li key={palette.value}>
+											<button
+												onClick={() => handleColorPaletteChange(palette.value)}
+												className='flex items-center gap-2 text-[var(--primary)]'
+											>
+												<div className={`w-4 h-4 rounded-full ${palette.color}`}></div>
+												{palette.name}
+											</button>
+										</li>
+									))}
 								</ul>
 							</div>
 						)}
 					</div>
 
-					{/* Auth */}
+					{/* Auth Buttons */}
 					<Link
 						href='/login'
-						className='flex items-center gap-1 text-sm px-4 py-2 rounded-xl bg-white border border-beige-200 text-teal-600 dark:bg-zinc-800 dark:border-zinc-600 dark:text-teal-300 hover:bg-beige-100 dark:hover:bg-zinc-700 transition'
+						className='flex items-center gap-1 text-sm px-4 py-2 rounded-xl bg-[var(--background)] border border-[var(--primary)] text-[var(--primary)] hover:text-[var(--background)] hover:bg-[var(--primary)] transition'
 					>
 						<LogIn size={16} />
 						Login
 					</Link>
+
 					<Link
 						href='/signup'
-						className='flex items-center gap-1 text-sm px-4 py-2 rounded-xl bg-teal-600 text-white hover:bg-teal-700 transition shadow'
+						className='flex items-center gap-1 text-sm px-4 py-2 rounded-xl bg-[var(--primary)] text-white hover:bg-[var(--secondary)] transition shadow'
 					>
 						<UserPlus size={16} />
 						Sign Up
