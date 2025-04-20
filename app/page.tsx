@@ -3,7 +3,7 @@ export default function Home () {
 		<div className='p-8'>
 			<header className='text-center space-y-6'>
 				<h1 className='text-4xl font-bold text-primary dark:text-white'>
-					Welcome to Student App
+					Welcome to HireByte
 				</h1>
 				<p className='text-lg text-gray-600 dark:text-gray-300'>
 					Create cover letters in bulk, roast your CVs, and get AI-powered interview

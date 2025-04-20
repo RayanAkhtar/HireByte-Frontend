@@ -65,7 +65,7 @@ const Navbar = () => {
 									className='text-3xl font-bold tracking-tight'
 									style={{ color: 'var(--primary)' }}
 								>
-									StudentApp
+									HireByte
 								</Link>
 								<div className='hidden md:flex gap-6 text-[15px] font-medium text-[var(--foreground)]'>
 									<Link
@@ -105,7 +105,7 @@ const Navbar = () => {
 						className='text-3xl font-bold tracking-tight'
 						style={{ color: 'var(--primary)' }}
 					>
-						StudentApp
+						HireByte
 					</Link>
 					<div className='hidden md:flex gap-6 text-[15px] font-medium text-[var(--foreground)]'>
 						<Link
