@@ -183,7 +183,7 @@ const Navbar = () => {
 
 					<Link
 						href='/signup'
-						className='flex items-center gap-1 text-sm px-4 py-2 rounded-xl bg-[var(--primary)] text-white hover:bg-[var(--secondary)] transition shadow'
+						className='flex items-center gap-1 text-sm px-4 py-2 rounded-xl bg-[var(--primary)] text-zinc-100 hover:bg-[var(--secondary)] transition shadow'
 					>
 						<UserPlus size={16} />
 						Sign Up
