@@ -1,17 +1,17 @@
 export default function Home () {
 	return (
-		<div className='p-8 bg-[var(--background)] text-[var(--foreground)] font-sans'>
+		<div className='p-8 bg-[var(--background)] text-[var(--foreground)] font-sans opacity-0 animate-fadeIn'>
 			{/* Hero Section with Login/Sign Up Prominent */}
-			<section className='relative py-32 bg-[var(--background-primary)] text-center rounded-lg shadow-lg'>
-				<h1 className='text-6xl font-extrabold text-primary dark:text-primary mb-6'>
+			<section className='relative py-32 bg-[var(--background-primary)] text-center rounded-lg shadow-lg opacity-0 animate-fadeIn transition-all duration-1000 delay-200'>
+				<h1 className='text-6xl font-extrabold text-primary dark:text-primary mb-6 scale-90 transition-all duration-1000 delay-200 transform hover:scale-105'>
 					Welcome to HireByte
 				</h1>
-				<p className='text-xl text-secondary dark:text-gray-300 mb-12'>
+				<p className='text-xl text-secondary dark:text-gray-300 mb-12 opacity-0 animate-fadeIn transition-all duration-1000 delay-400'>
 					The all-in-one platform for job seekers: bulk cover letters, CV roasting,
 					and AI interview assistance.
 				</p>
 
-				<div className='space-x-6 mb-12'>
+				<div className='space-x-6 mb-12 opacity-0 animate-fadeIn transition-all duration-1000 delay-600'>
 					<a
 						href='/cover-letter'
 						className='inline-block px-8 py-4 bg-[var(--primary)] text-white rounded-full hover:bg-[var(--secondary)] transition duration-300 transform hover:scale-105'
@@ -27,7 +27,7 @@ export default function Home () {
 				</div>
 
 				{/* Floating Login/Signup Section */}
-				<div className='absolute bottom-8 left-1/2 transform -translate-x-1/2 space-x-4'>
+				<div className='absolute bottom-8 left-1/2 transform -translate-x-1/2 space-x-4 opacity-0 animate-fadeIn transition-all duration-1000 delay-800'>
 					<a
 						href='/login'
 						className='inline-block px-6 py-3 bg-[var(--primary)] text-white rounded-full shadow-xl hover:bg-[var(--secondary)] transition'
@@ -44,7 +44,7 @@ export default function Home () {
 			</section>
 
 			{/* Stats Section with Larger Cards and Realistic Numbers */}
-			<section className='mt-24 text-center'>
+			<section className='mt-24 text-center opacity-0 animate-fadeIn transition-all duration-1000 delay-1000'>
 				<h2 className='text-3xl font-semibold text-primary dark:text-primary mb-12'>
 					Join Over 20,000 Job Seekers Already Using HireByte
 				</h2>
@@ -92,7 +92,7 @@ export default function Home () {
 			</section>
 
 			{/* Why Choose Us Section */}
-			<section className='mt-32 text-center'>
+			<section className='mt-32 text-center opacity-0 animate-fadeIn transition-all duration-1000 delay-1200'>
 				<h2 className='text-3xl font-semibold text-primary dark:text-primary mb-12'>
 					Why Choose Us?
 				</h2>
@@ -144,7 +144,7 @@ export default function Home () {
 			</section>
 
 			{/* Call-to-Action Section (Newsletter) */}
-			<section className='mt-24 bg-[var(--background-primary)] text-center py-16 rounded-xl shadow-xl'>
+			<section className='mt-24 bg-[var(--background-primary)] text-center py-16 rounded-xl shadow-xl opacity-0 animate-fadeIn transition-all duration-1000 delay-1400'>
 				<h2 className='text-3xl font-semibold text-primary dark:text-primary mb-6'>
 					Stay Updated!
 				</h2>
