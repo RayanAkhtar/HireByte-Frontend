@@ -6,24 +6,27 @@
 
 /* Light theme default */
 :root {
-  --background: #ffffff;
+  --background: #f4fafa;
   --foreground: #171717;
-  --primary: #81E6D9;
+
+  --primary: #72d4c7;
   --secondary: #2C7A7B;
   --tertiary: #2B6B6D;
-  --button-bg: #ffffff;
+
+  --button-bg: #f4fafa;
   --button-fg: var(--primary);
-  --button-border: #e5e7eb;
+  --button-border: #cbd5e1;
 
   /* Foreground colors */
   --foreground-primary: var(--foreground);
   --foreground-secondary: var(--secondary);
   --foreground-tertiary: var(--tertiary);
 
-  /* Background colors */
-  --background-primary: #e2f9f9;
-  --background-secondary: #a3d4d4;
-  --background-tertiary: #2f4f4f;
+  --background-primary: #81b3b3;
+  --background-secondary: #81aaaa;
+  --background-tertiary: #b0c0c0;
+  
+  
 }
 
 /* Dark theme default */
@@ -43,26 +46,20 @@
 
 /* Pastel Theme */
 html[data-color-palette="pastel"] {
-  --background: #fdf2f2;
-  --foreground: #6a5959;
-  --primary: #ffb3b3;
-  --secondary: #f5a1a1;
-  --tertiary: #d98d8d;
+  --background: #f9ebeb;
+  --foreground: #3e2e2e;
 
-  /* Foreground colors for pastel theme */
+  --primary: #ff9a9a;
+  --secondary: #e88b8b;
+  --tertiary: #b86666;
+
   --foreground-primary: var(--foreground);
   --foreground-secondary: var(--secondary);
   --foreground-tertiary: var(--tertiary);
 
-  /* Background colors for pastel theme */
-  --background-primary: #ffe4e4;
-  --background-secondary: #f7c2c2;
-  --background-tertiary: #e9a7a7;
-}
-
-html[data-color-palette="pastel"] body {
-  background-color: var(--background);
-  color: var(--foreground);
+  --background-primary: #eed0d0;
+  --background-secondary: #c18585;
+  --background-tertiary: #9c6262;
 }
 
 /* Dark mode Pastel */
